@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="background">
+    <file>TimKiem/background.png</file>
+    <file>TimKiem/background2.png</file>
+  </qresource>
+  <qresource prefix="input">
+    <file>TimKiem/textbox.png</file>
+  </qresource>
+  <qresource prefix="MuiTen">
+    <file>TimKiem/muitenLen.png</file>
+    <file>TimKiem/muiTenXuong.png</file>
+  </qresource>
+  <qresource prefix="Select">
+    <file>TimKiem/selectKhoa.png</file>
+    <file>TimKiem/selectThuatToan.png</file>
+  </qresource>
+</RCC>

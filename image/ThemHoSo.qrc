@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="background">
+    <file>ThemHoSo/background.png</file>
+  </qresource>
+  <qresource prefix="input">
+    <file>ThemHoSo/input.jpg</file>
+  </qresource>
+</RCC>

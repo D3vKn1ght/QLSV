@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="background">
+    <file>ThongKe/background.png</file>
+    <file>ThongKe/background2..png</file>
+    <file>ThongKe/background3.png</file>
+  </qresource>
+</RCC>

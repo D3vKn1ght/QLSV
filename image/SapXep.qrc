@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="background">
+    <file>SapXep/background.png</file>
+    <file>SapXep/background2.png</file>
+  </qresource>
+  <qresource prefix="MuiTen">
+    <file>SapXep/muitenLen.png</file>
+    <file>SapXep/muiTenXuong.png</file>
+  </qresource>
+  <qresource prefix="Select">
+    <file>SapXep/SelectKhoa.png</file>
+    <file>SapXep/SelectThuatToan.png</file>
+  </qresource>
+</RCC>
