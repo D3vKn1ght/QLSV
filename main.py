@@ -39,16 +39,16 @@ lstXepLoai = {'XuatSac': "Xuất sắc", 'Gioi': "Giỏi", 'Kha': "Khá",
               'TrungBinh': "Trung Bình", 'Yeu': "Yếu", 'Kem': "Kém"}
 
 
-def encrypt(s):
+def xor(s):
     s = str(s)
-    key = [3, 1, 2]
-    return "".join(chr(ord(c) + key[i % len(key)]) for i, c in enumerate(s))
-
-
-def decrypt(s):
-    s = str(s)
-    key = [3, 1, 2]
-    return "".join(chr(ord(c) - key[i % len(key)]) for i, c in enumerate(s))
+    key = [110, 221, 342, 564, 212]
+    answer = ""
+    for i, c in enumerate(s):
+        if (ord(c) ^ key[i % len(key)]) != 0:
+            answer += chr((ord(c) ^ key[i % len(key)]))
+        else:
+            answer += c
+    return answer
 
 
 class QuanLySinhVien(QMainWindow, Ui_MainWindow):
@@ -222,7 +222,7 @@ class QuanLySinhVien(QMainWindow, Ui_MainWindow):
                                      encoding='utf8').values.tolist()
             for person in self.listData:
                 for i in range(len(person)):
-                    person[i] = decrypt(person[i])
+                    person[i] = xor(person[i])
                 person[1] = int(person[1])
                 person[4] = float(person[4])
                 self.llist.push(person)
@@ -309,11 +309,11 @@ class QuanLySinhVien(QMainWindow, Ui_MainWindow):
         sv = ["".join(malop), int(maSinhVien), " ".join(
             hoTen.split()), "".join(
             ngaySinh.split()), float(DTB)]
-        dct = {'MaLop': encrypt(sv[0]),
-               'MaSinhVien': encrypt(sv[1]),
-               'HoTen': encrypt(sv[2]),
-               'NgaySinh': encrypt(sv[3]),
-               'DTB': encrypt(sv[4])}
+        dct = {'MaLop': xor(sv[0]),
+               'MaSinhVien': xor(sv[1]),
+               'HoTen': xor(sv[2]),
+               'NgaySinh': xor(sv[3]),
+               'DTB': xor(sv[4])}
         print(sv)
         with open(self.pathData, 'a', newline="", encoding='utf-8') as file:
             field = ['MaLop', 'MaSinhVien', 'HoTen', 'NgaySinh', 'DTB']
