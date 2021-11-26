@@ -39,13 +39,25 @@ lstXepLoai = {'XuatSac': "Xuất sắc", 'Gioi': "Giỏi", 'Kha': "Khá",
               'TrungBinh': "Trung Bình", 'Yeu': "Yếu", 'Kem': "Kém"}
 
 
+def encrypt(s):
+    s = str(s)
+    key = [3, 1, 2]
+    return "".join(chr(ord(c) + key[i % len(key)]) for i, c in enumerate(s))
+
+
+def decrypt(s):
+    s = str(s)
+    key = [3, 1, 2]
+    return "".join(chr(ord(c) - key[i % len(key)]) for i, c in enumerate(s))
+
+
 class QuanLySinhVien(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         # self.stackedWidget.setCurrentWidget(self.home)
         self.stackedWidget.setCurrentWidget(self.home)
-        self.pathData = 'Data1.txt'
+        self.pathData = 'Data'
         self.handle_gui()
         self.handle_action()
         self.listData = []
@@ -209,6 +221,8 @@ class QuanLySinhVien(QMainWindow, Ui_MainWindow):
             self.listData = read_csv(self.pathData, header=None,
                                      encoding='utf8').values.tolist()
             for person in self.listData:
+                for i in range(len(person)):
+                    person[i] = decrypt(person[i])
                 self.llist.push(person)
         else:
             print("File is empty")
@@ -293,11 +307,11 @@ class QuanLySinhVien(QMainWindow, Ui_MainWindow):
         sv = ["".join(malop), int(maSinhVien), " ".join(
             hoTen.split()), "".join(
             ngaySinh.split()), float(DTB)]
-        dct = {'MaLop': sv[0],
-               'MaSinhVien': sv[1],
-               'HoTen': sv[2],
-               'NgaySinh': sv[3],
-               'DTB': sv[4]}
+        dct = {'MaLop': encrypt(sv[0]),
+               'MaSinhVien': encrypt(sv[1]),
+               'HoTen': encrypt(sv[2]),
+               'NgaySinh': encrypt(sv[3]),
+               'DTB': encrypt(sv[4])}
         print(sv)
         with open(self.pathData, 'a', newline="", encoding='utf-8') as file:
             field = ['MaLop', 'MaSinhVien', 'HoTen', 'NgaySinh', 'DTB']

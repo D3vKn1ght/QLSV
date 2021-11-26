@@ -1,6 +1,0 @@
-CNTT1,954,Vũ Minh Thư,14/10/2018,7.0
-PT,833,Trần Trung Phong,11/12/2019,7.5
-BDATTT,302,Trần Trung Phong,19/11/2031,5.2
-ANHTTT,465,Phạm Quang Dũng,13/12/2010,9.9
-ANHTTT,977,Nguyễn Mạnh Hùng,11/12/2019,10.0
-PT,800,Phạm Hoàng Anh,13/10/2022,8.8
