@@ -223,6 +223,8 @@ class QuanLySinhVien(QMainWindow, Ui_MainWindow):
             for person in self.listData:
                 for i in range(len(person)):
                     person[i] = decrypt(person[i])
+                person[1] = int(person[1])
+                person[4] = float(person[4])
                 self.llist.push(person)
         else:
             print("File is empty")
